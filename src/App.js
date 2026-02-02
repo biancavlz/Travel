@@ -24,6 +24,11 @@ function Logo() {
 function Form() {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [items, setItems] = useState();
+
+  function handleItems(newItem) {
+    setItems((items) => [...items, newItem]);
+  }
 
   function handleSubmition(e) {
     e.preventDefault(); // Prevents reloading the page when form submission
@@ -38,6 +43,8 @@ function Form() {
     };
 
     console.log(newItem); //sends data
+
+    handleItems(newItem);
 
     // Sets form back to initial state
     setDescription("");
